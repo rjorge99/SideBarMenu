@@ -1,0 +1,73 @@
+@import "./commons.scss";
+
+.sidebar-menu-item {
+    text-align: center;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+
+        .item-content {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            @include transition(width);
+
+            &.collapsed {
+                width: 35px;
+            }
+
+            .icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .label {
+                font-weight: 500;
+                margin-left: 10px;
+                overflow: hidden;
+            }
+        }
+
+        &:hover {
+            background-color: #325ba8;
+            color: white;
+        }
+
+        &:hover {
+            & + .tooltip {
+                display: inline-block;
+                animation-duration: 0.4s;
+                animation-name: tooltip;
+            }
+        }
+    }
+
+    .tooltip {
+        background-color: #000;
+        position: absolute;
+        left: 70px;
+        padding: 10px;
+        border-radius: 4px;
+        text-transform: capitalize;
+        display: none;
+    }
+}
+
+@keyframes tooltip {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
